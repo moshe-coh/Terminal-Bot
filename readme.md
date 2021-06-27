@@ -17,4 +17,7 @@ allowed = [12345678, 87654321] # replace to your id (get your id in @userinfobot
 ```
 - and than run it on your sever!
 
+## how to deploy 
+___
 
+- [**see this video**](https://drive.google.com/file/d/1pbeg3eeim1F2XPFct-UTi9I9hHqYdH0-)
