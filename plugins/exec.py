@@ -13,22 +13,26 @@ from plugins.terminal import Terminal
 async def exec_cmd(_, msg: Message):
     m = msg.text
     cmd = await Terminal.execute(m)
-
     user = getuser()
-
-    output = f"{user}:~$ {cmd}\n"
+    
+    try:
+        uid = os.geteuid()
+    except ImportError:
+        uid = 1
+    output = f"`{user}:~#` `{cmd}`\n" if uid == 0 else f"`{user}:~$` `{cmd}`\n"
     count = 0
     k = None
-
     while not cmd.finished:
         count += 1
         await asyncio.sleep(0.3)
         if count >= 5:
+            count = 0
             out_data = f"{output}`{cmd.read_line}`"
             try:
-                k = await msg.reply(out_data)
-                await asyncio.sleep(0.3)
-                await k.edit(out_data)
+                if not k:
+                    k = await msg.reply(out_data)
+                else:
+                    await k.edit(out_data)
             except Exception:
                 pass
     out_data = f"`{output}{cmd.get_output}`"
