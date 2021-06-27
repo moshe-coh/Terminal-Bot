@@ -5,7 +5,7 @@
 ### how to host?
 ___
 
-- clone and or fork this repo
+- clone or fork this repo
 - give me a star 😎
 - edit the [config.py](https://github.com/moshe-coh/Terminal-Bot/blob/main/config.py) file like this:
 
