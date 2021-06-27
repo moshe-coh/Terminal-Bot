@@ -7,7 +7,7 @@ ___
 
 - clone and or fork this repo
 - give me a star 😎
-- edit the config.py file like this:
+- edit the [config.py](https://github.com/moshe-coh/Terminal-Bot/blob/main/config.py) file like this:
 
 ```python3
 token = "" # from @BotFather
