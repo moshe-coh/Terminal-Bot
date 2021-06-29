@@ -11,8 +11,8 @@ ___
 
 ```python3
 token = "" # from @BotFather
-app_id = 6  https://my.telegram.org/apps
-app_hash = "" https://my.telegram.org/apps
+app_id = 6 # https://my.telegram.org/apps
+app_hash = "" # https://my.telegram.org/apps
 allowed = [12345678, 87654321] # replace to your id (get your id in @userinfobot)
 ```
 - run ```pip3 install -r requirements.txt```
