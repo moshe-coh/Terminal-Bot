@@ -15,7 +15,8 @@ app_id = 6  https://my.telegram.org/apps
 app_hash = "" https://my.telegram.org/apps
 allowed = [12345678, 87654321] # replace to your id (get your id in @userinfobot)
 ```
-- and than run it on your sever!
+- run ```pip3 install -r requirements.txt```
+- **and than run it on your sever!**
 
 ## how to deploy 
 ___
