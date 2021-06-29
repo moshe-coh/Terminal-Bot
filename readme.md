@@ -22,3 +22,5 @@ allowed = [12345678, 87654321] # replace to your id (get your id in @userinfobot
 ___
 
 - [**see this video**](https://drive.google.com/file/d/1pbeg3eeim1F2XPFct-UTi9I9hHqYdH0-)
+
+- _soon i will create a new video tutorial how to deploy to heroku..._
