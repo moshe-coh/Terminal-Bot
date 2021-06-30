@@ -6,7 +6,7 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 
 from config import allowed
-from plugins.terminal import Terminal
+from functions.terminal import Terminal
 
 
 @Client.on_message(filters.user(allowed) & ~filters.command(['start', 'help', 'st', 'stats', 'ip']) & filters.text)
@@ -14,14 +14,12 @@ async def exec_cmd(_, msg: Message):
     m = msg.text
     cmd = await Terminal.execute(m)
     user = getuser()
-    
-    try:
-        uid = os.geteuid()
-    except ImportError:
-        uid = 1
+    uid = os.geteuid()
+
     output = f"`{user}:~#` `{cmd}`\n" if uid == 0 else f"`{user}:~$` `{cmd}`\n"
     count = 0
     k = None
+
     while not cmd.finished:
         count += 1
         await asyncio.sleep(0.3)
