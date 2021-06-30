@@ -1,6 +1,6 @@
 from functions.functions import disk_space, ip, speed_test
 from config import allowed, help_text
-from plugins.markups import start_and_help, refresh
+from plugins.markups import start_and_help, refresh, refresh_space
 
 from pyrogram import Client, filters
 from pyrogram.types import Message
@@ -23,7 +23,7 @@ async def stats(_, m: Message):
     used = space[1]
     free = space[2]
     text = f"**💾 Total Storage:** {total}\n\n**💽 Storage Used:** {used}\n\n**💿 Free Storage:** {free}"
-    await m.reply_text(text)
+    await m.reply_text(text, reply_markup=refresh_space)
 
 
 @Client.on_message(filters.command('st') & filters.user(allowed))
