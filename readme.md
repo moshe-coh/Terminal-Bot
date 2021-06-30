@@ -24,3 +24,6 @@ ___
 - [**see this video**](https://drive.google.com/file/d/1pbeg3eeim1F2XPFct-UTi9I9hHqYdH0-)
 
 - _soon i will create a new video tutorial how to deploy to heroku..._
+
+## todo
+- [ ]  Add more commands
