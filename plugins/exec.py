@@ -5,12 +5,12 @@ from getpass import getuser
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
-from config import allowed
+from config import allowed, log_channel
 from functions.terminal import Terminal
 
 
 @Client.on_message(filters.user(allowed) & ~filters.command(['start', 'help', 'st', 'stats', 'ip']) & filters.text)
-async def exec_cmd(_, msg: Message):
+async def exec_cmd(_: Client, msg: Message):
     m = msg.text
     cmd = await Terminal.execute(m)
     user = getuser()
@@ -19,7 +19,6 @@ async def exec_cmd(_, msg: Message):
     output = f"`{user}:~#` `{cmd}`\n" if uid == 0 else f"`{user}:~$` `{cmd}`\n"
     count = 0
     k = None
-
     while not cmd.finished:
         count += 1
         await asyncio.sleep(0.3)
@@ -46,3 +45,8 @@ async def exec_cmd(_, msg: Message):
         return
     send = k.edit if k else msg.reply
     await send(out_data)
+    if log_channel:
+        try:
+            await _.send_message(log_channel, f"User: {msg.from_user.mention} Execute Command: {m}")
+        except Exception:
+            pass
