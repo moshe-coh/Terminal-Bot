@@ -2,3 +2,4 @@ pyrogram
 tgcrypto
 httpx
 speedtest-cli
+psutil
