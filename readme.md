@@ -2,7 +2,7 @@
 
 ## With this bot you can execute system commands on your server.
 
-### how to host?
+### how to config?
 ___
 
 - clone or fork this repo
@@ -10,10 +10,17 @@ ___
 - edit the [config.py](https://github.com/moshe-coh/Terminal-Bot/blob/main/config.py) file like this:
 
 ```python3
-token = "" # from @BotFather
-app_id = 6 # https://my.telegram.org/apps
-app_hash = "" # https://my.telegram.org/apps
-allowed = [12345678, 87654321] # replace to your id (get your id in @userinfobot)
+token = ""  # from @BotFather
+app_id = 6  # https://my.telegram.org/apps
+app_hash = ""  # https://my.telegram.org/apps
+allowed = [12345678, 87654321]  # replace to your id (get your id in @userinfobot)
+
+logger: bool = True  # set it True to get logs in some channel...
+log_channel = -100
+
+# if logger is True your channel ID and add it here.
+# (don't forget to add your bot as admin in your channel...)
+
 ```
 - run ```pip3 install -r requirements.txt```
 - **and than run it on your sever!**
@@ -25,5 +32,7 @@ ___
 
 - _soon i will create a new video tutorial how to deploy to heroku..._
 
-## todo
-- [ ]  Add more commands
+## Todo
+- [ ]  Add option to download and upload files...
+- [ ]  Add /cd command
+- [ ]  Add option to download and upload files...
