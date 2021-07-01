@@ -22,7 +22,10 @@ async def stats(_, m: Message):
     total = space[0]
     used = space[1]
     free = space[2]
-    text = f"**💾 Total Storage:** {total}\n\n**💽 Storage Used:** {used}\n\n**💿 Free Storage:** {free}"
+    total_ram = space[3]
+    free_ram = space[4]
+    text = f"**💾 Total Storage:** {total}\n\n**💽 Storage Used:** {used}\n\n**💿 Free Storage:** {free}\n\n" \
+           f"**Total Ram:** {total_ram}\n\n**Free Ram:** {free_ram}"
     await m.reply_text(text, reply_markup=refresh_space)
 
 
