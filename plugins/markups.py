@@ -27,13 +27,17 @@ async def bt(_, cb: CallbackQuery):
             await cb.message.edit_text(text, reply_markup=refresh)
         except MessageNotModified:
             pass
+
     elif cb.data == "space":
-        await cb.message.edit_text('Checking Again... ⏳ ')
+        await cb.message.edit_text('Checking Again... ⏳')
         space = disk_space()
         total = space[0]
         used = space[1]
         free = space[2]
-        text = f"**💾 Total Storage:** {total}\n\n**💽 Storage Used:** {used}\n\n**💿 Free Storage:** {free}"
+        total_ram = space[3]
+        free_ram = space[4]
+        text = f"**💾 Total Storage:** {total}\n\n**💽 Storage Used:** {used}\n\n**💿 Free Storage:** {free}\n\n" \
+               f"**Total Ram: {total_ram}**\n\n**Free Ram: {free_ram}**"
         try:
             await cb.message.edit_text(text, reply_markup=refresh_space)
         except MessageNotModified:
