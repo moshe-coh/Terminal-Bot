@@ -34,6 +34,15 @@ ___
 
 - [**see this video to deploy on _heroku_**](https://drive.google.com/file/d/1bchJpwyOMRgr5kI4CTuwW9RoCAv3Y5ho/view?usp=sharing)
 
+## commnads for @BotFather:
+```
+start - 📜 welcome message 
+help - 😉 like start message
+ip - 🔒 my server ip
+st - ♨️ speed test to my server 
+stats - 📊 server stats
+```
+
 ## Todo
 - [ ]  Add option to download and upload files...
 - [ ]  Add /cd command
