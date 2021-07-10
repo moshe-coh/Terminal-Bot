@@ -1,19 +1,21 @@
-import shutil
 import httpx
 import psutil
 import speedtest
+from datetime import datetime
+from time import time
 
 
-def disk_space() -> tuple:
-    BytesPerGB = 1024 * 1024 * 1024
-    total, used, free = shutil.disk_usage(".")
-    total_ram = psutil.virtual_memory().total
-    ram_used = psutil.virtual_memory().percent
-    f_total = "%.2f GB" % (float(total) / BytesPerGB)
-    f_used = "%.2f GB" % (float(used) / BytesPerGB)
-    f_free = "%.2f GB" % (float(free) / BytesPerGB)
-    f_total_ram = "%.2f GB" % (float(total_ram) / BytesPerGB)
-    return f_total, f_used, f_free, f_total_ram, ram_used
+def str_uptime(secs: float):
+    if secs > 217728000:  # 1 year in secs
+        return datetime.fromtimestamp(secs).strftime("%YY %mM %dd | %Hh %Mm %Ss")
+    elif secs > 2629746:  # 1 month in secs
+        return datetime.fromtimestamp(secs).strftime("%mM %dd | %Hh %Mm %Ss")
+    else:  # 1 day in secs
+        return datetime.fromtimestamp(secs).strftime("%dd | %Hh %Mm %Ss")
+
+
+def convert_to_GB(input_bytes):
+    return round(input_bytes / (1024 * 1024 * 1024), 1)
 
 
 def ip() -> str:
@@ -54,3 +56,19 @@ def speed_test() -> tuple:
     f_up = "%.2f MB" % (float(st.upload()) / BytesPerMB)
 
     return f_down, f_up, ping
+
+
+def stats_server() -> str:
+    stat_msg = f"""
+    **Server Stats**
+
+    CPU Used 💽: {psutil.cpu_percent(interval=0.1)}%
+    RAM Used 💿: {psutil.virtual_memory().percent}%
+    Disk Used 💾: {convert_to_GB(psutil.disk_usage('/').used)}GB of {convert_to_GB(psutil.disk_usage('/').total)}GB
+    Uptime ⚡: {str_uptime(time() - psutil.boot_time())}
+    Booted on ⏱: {datetime.fromtimestamp(psutil.boot_time()).strftime("%Y-%m-%d %H:%M:%S")}
+    Stats as of 🩸: {datetime.fromtimestamp(time()).strftime("%Y-%m-%d %H:%M:%S")}
+    """
+    return stat_msg
+
+
