@@ -43,7 +43,7 @@ st - ♨️ speed test to my server
 stats - 📊 server stats
 ```
 
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=moshe-coh&repo=Terminal-Bot)]
+[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=moshe-coh&repo=Terminal-Bot)
 
 ## Todo
 - [ ]  Add option to download and upload files...
