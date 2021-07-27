@@ -48,10 +48,13 @@ def ip() -> str:
 
 
 def speed_test() -> tuple:
-    st = speedtest.Speedtest()
-    ping = st.results.ping
-
+    start = time()
+    httpx.get('https://google.com')
+    end = time()
+    ping = str(round((end - start), 2)) + "s"
+    
     BytesPerMB = 1024 * 1024
+    st = speedtest.Speedtest()
     f_down = "%.2f MB" % (float(st.download()) / BytesPerMB)
     f_up = "%.2f MB" % (float(st.upload()) / BytesPerMB)
 
@@ -70,5 +73,3 @@ def stats_server() -> str:
     Stats as of 🩸: {datetime.fromtimestamp(time()).strftime("%Y-%m-%d %H:%M:%S")}
     """
     return stat_msg
-
-
