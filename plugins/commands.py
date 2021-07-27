@@ -18,17 +18,13 @@ async def ip_cmd(_, m: Message):
 
 @Client.on_message(filters.command('stats') & filters.user(allowed))
 async def stats(_, m: Message):
-
     await m.reply_text(stats_server(), reply_markup=refresh_space)
 
 
 @Client.on_message(filters.command('st') & filters.user(allowed))
 async def st_cmd(_, m: Message):
     send = await m.reply('Checking... ⏳')
-    st = speed_test()
-    down = st[0]
-    up = st[1]
-    ping = st[2]
+    down, up, ping = speed_test()
     text = f"**📥 Download Speed:** {down}\n\n**📤 Upload Speed:** {up}\n\n**🩸 ping: ** {ping}"
     await send.delete()
     await m.reply_text(text, reply_markup=refresh)
