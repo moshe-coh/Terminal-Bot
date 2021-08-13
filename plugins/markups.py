@@ -3,7 +3,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQ
 from pyrogram.errors import MessageNotModified
 from functions.functions import speed_test, stats_server
 
-start_and_help = InlineKeyboardMarkup([[InlineKeyboardButton(text='Creator 🦾', url='https://t.me/MosheWin')],
+start_and_help = InlineKeyboardMarkup([[InlineKeyboardButton(text='Creator 🦾', url='https://t.me/MosheNew')],
                                        [
                                            InlineKeyboardButton(text='Source Code 🗃',
                                                                 url='https://github.com/moshe-coh/Terminal-Bot')
