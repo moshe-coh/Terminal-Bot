@@ -18,10 +18,7 @@ refresh_space = InlineKeyboardMarkup([[InlineKeyboardButton(text='Refresh 💫',
 async def bt(_, cb: CallbackQuery):
     if cb.data == "refresh":
         await cb.message.edit_text('Checking Again... ⏳ ')
-        st = speed_test()
-        down = st[0]
-        up = st[1]
-        ping = st[2]
+        down, up, ping = speed_test()
         text = f"**📥 Download Speed:** {down}\n\n**📤 Upload Speed:** {up}\n\n**🩸 ping: ** {ping}"
         try:
             await cb.message.edit_text(text, reply_markup=refresh)
