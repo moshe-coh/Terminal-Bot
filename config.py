@@ -24,7 +24,6 @@ So you run one of these for yourself [here](https://github.com/moshe-coh/Termina
 🔹 /stats - disk space
 🔹 /cd - change working dir
 🔹 /my_files - file manager
-🔹 /update - update the bot to latest version
 🔹 And All System Commands...
 
 """
