@@ -31,7 +31,6 @@ help - 😉 like start message
 ip - 🔒 my server ip
 st - ♨️ speed test to my server 
 stats - 📊 server stats
-update - ⚡️ update the bot to latest version
 my_files - 📁 files manager
 cd - 🗃 change working dir
 ```
