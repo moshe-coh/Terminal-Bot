@@ -1,5 +1,7 @@
 pyrogram
 tgcrypto
+pyromod
 httpx
 speedtest-cli
 psutil
+disk

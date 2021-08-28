@@ -1,11 +1,13 @@
-token = ""  # from @BotFather
-app_id = 6  # https://my.telegram.org/apps
-app_hash = ""  # https://my.telegram.org/apps
-allowed = [12345678, 87654321]  # replace to your id (get your id in @userinfobot)
-logger: bool = True  # set it True to get logs in some channel... ()
-# if logger is True get your channel ID and add it here.
-# (don't forget to add your bot as admin in your channel...)
-log_channel = -100
+import os
+import re
+
+id_pattern = re.compile(r'^.\d+$')
+
+
+token = os.environ.get("TOKEN")
+app_id = int(os.environ.get("APP_ID"))
+app_hash = os.environ.get("API_HASH")
+allowed = [int(user) if id_pattern.search(user) else user for user in os.environ.get('AUTH_USERS', '').split()]
 
 help_text = """
 Hello I'm Terminal Bot which will Execute your Commands.
@@ -20,6 +22,9 @@ So you run one of these for yourself [here](https://github.com/moshe-coh/Termina
 🔹 /st - speed test
 🔹 /ip - ip details
 🔹 /stats - disk space
+🔹 /cd - change working dir
+🔹 /my_files - file manager
+🔹 /update - update the bot to latest version
 🔹 And All System Commands...
 
 """

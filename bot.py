@@ -1,6 +1,7 @@
 import asyncio
 import logging
 import config
+from pyromod import listen
 from pyrogram import Client, idle, __version__
 from pyrogram.raw.all import layer
 
@@ -13,7 +14,7 @@ bot = Client('ssh', api_id=config.app_id, api_hash=config.app_hash, bot_token=co
 async def main():
     await bot.start()
     me = await bot.get_me()
-    print(f"\n\n{me.first_name} with Pyrogram v{__version__} (Layer {layer}) started on {me.username}.")
+    print(f"\n{me.first_name} with Pyrogram v{__version__} (Layer {layer}) started on {me.username}.")
     await idle()
 
 
