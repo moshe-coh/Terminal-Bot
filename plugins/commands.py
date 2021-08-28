@@ -1,11 +1,8 @@
-import sys
 from functions.functions import ip, get_server_speedtest, get_server_details
 from config import allowed, help_text
-from plugins.markups import start_and_help, refresh_space
+from plugins.markups import start_and_help, refresh_space, base_markup
 from pyrogram import Client, filters
 from pyrogram.types import Message, ForceReply
-from git import Repo
-from git.exc import GitCommandError, InvalidGitRepositoryError
 import os
 
 
@@ -47,25 +44,6 @@ async def cd(client, m: Message):
         await m.reply_text(str(e))
 
 
-@Client.on_message(filters.command("update") & filters.user(allowed))
-async def update(_, m: Message):
-    try:
-        repo = Repo()
-    except InvalidGitRepositoryError:
-        repo = Repo.init()
-        origin = repo.create_remote("upstream", "https://github.com/moshe-coh/Terminal-Bot")
-        origin.fetch()
-        repo.create_head("master", origin.refs.master)
-        repo.heads.master.set_tracking_branch(origin.refs.master)
-        repo.heads.master.checkout(True)
-    repo.create_remote("upstream", 'https://github.com/moshe-coh/Terminal-Bot')
-    ac_br = repo.active_branch.name
-    ups_rem = repo.remote("upstream")
-    ups_rem.fetch(ac_br)
-    try:
-        ups_rem.pull(ac_br)
-    except GitCommandError:
-        repo.git.reset("--hard", "FETCH_HEAD")
-    args = [sys.executable, "bot.py"]
-    os.execle(sys.executable, *args)
-    await m.reply_text("⚡️Bot updated")
+@Client.on_message(filters.command('my_files') & filters.user(allowed))
+async def my_files(_, m: Message):
+    await m.reply_text('what you want to show?', reply_markup=base_markup)
