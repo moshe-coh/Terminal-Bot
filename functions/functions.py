@@ -116,5 +116,3 @@ def human_readable_speed(size):
         zero += 1
     return f"{round(size, 2)} {units[zero]}"
 
-
-print(get_server_details())
