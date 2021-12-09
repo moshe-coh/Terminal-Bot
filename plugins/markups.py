@@ -11,7 +11,7 @@ from functions.functions import get_server_details
 path = Path(os.getcwd())
 files_num = path.get_num_files()
 
-start_and_help = InlineKeyboardMarkup([[InlineKeyboardButton(text='Creator 🦾', url='https://t.me/MosheNew')],
+start_and_help = InlineKeyboardMarkup([[InlineKeyboardButton(text='Creator 🦾', url='https://t.me/JewishBots')],
                                        [
                                            InlineKeyboardButton(text='Source Code 🗃',
                                                                 url='https://github.com/moshe-coh/Terminal-Bot')
