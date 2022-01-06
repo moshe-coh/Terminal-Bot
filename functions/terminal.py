@@ -19,15 +19,17 @@ class Terminal:
 
     @property
     def read_line(self) -> str:
-        return (self._stdout_line + self._stderr_line).decode('utf-8').strip()
+        return (self._stdout_line + self._stderr_line).decode('utf-8').rstrip()
+        #return (self._stdout + self._stderr).decode('utf-8').strip()
 
     @property
     def get_output(self) -> str:
-        return (self._stdout + self._stderr).decode('utf-8').strip()
+        return (self._stdout + self._stderr).decode('utf-8').rstrip()
 
     async def _read_stdout(self) -> None:
         while True:
-            line = await self._process.stdout.readline()
+            #line = await self._process.stdout.readline()
+            line = await self._process.stdout.read(n=1024)
             if line:
                 self._stdout_line = line
                 self._stdout += line
@@ -36,7 +38,8 @@ class Terminal:
 
     async def _read_stderr(self) -> None:
         while True:
-            line = await self._process.stderr.readline()
+            #line = await self._process.stderr.readline()
+            line = await self._process.stderr.read(n=1024)
             if line:
                 self._stderr_line = line
                 self._stderr += line
