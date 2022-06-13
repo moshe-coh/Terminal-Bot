@@ -1,6 +1,6 @@
 FROM python:3.9.13-bullseye
 
-RUN apt install -y --no-install-recommends \
+RUN apt update && apt install -y --no-install-recommends \
      p7zip-full rdfind wget curl \
      git 
 
