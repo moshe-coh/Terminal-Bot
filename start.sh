@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# update code upstream
+python3 upstream.py
+
 # Install rclone static binary
 wget -q https://downloads.rclone.org/v1.58.1/rclone-v1.58.1-linux-amd64.zip
 unzip -q rclone-*-linux-amd64.zip
