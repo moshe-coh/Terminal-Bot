@@ -18,9 +18,6 @@ ___
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-- [**see this video to deploy on VPS**](https://drive.google.com/file/d/1pbeg3eeim1F2XPFct-UTi9I9hHqYdH0-)
-
-- [**see this video to deploy on _heroku_ using heroku-cli**](https://drive.google.com/file/d/1bchJpwyOMRgr5kI4CTuwW9RoCAv3Y5ho/view?usp=sharing)
 
 ## commnads for @BotFather:
 ```
